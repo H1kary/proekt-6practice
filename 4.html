@@ -6,28 +6,45 @@
       <title>4 задание</title>
    </head>
    <body>
-      <form>
-         <input type="text" placeholder="Имя">
-         <br>
-         <input type="email" placeholder="Email">
-         <br>
-         <button type="submit">Отправить</button>
-      </form>
    </body>
    <script>
-   let form = document.querySelector('form');
-   let nameInput = document.querySelector('input[type="text"]');
-   let emailInput = document.querySelector('input[type="email"]');
-
-   form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      let name = nameInput.value;
-      let email = emailInput.value;
-      
-      let result = document.createElement('p');
-      result.textContent = `Ваше имя ${name} Ваш email ${email}`;
-      document.body.appendChild(result);
-   });
+   const form = document.createElement('form');
+   
+   const nameLabel = document.createElement('label');
+   nameLabel.htmlFor = 'name';
+   nameLabel.textContent = 'Имя:';
+   form.appendChild(nameLabel);
+   
+   form.appendChild(document.createElement('br'));
+   
+   const nameInput = document.createElement('input');
+   nameInput.type = 'text';
+   nameInput.id = 'name';
+   nameInput.name = 'name';
+   form.appendChild(nameInput);
+   
+   form.appendChild(document.createElement('br'));
+   
+   const emailLabel = document.createElement('label');
+   emailLabel.htmlFor = 'email';
+   emailLabel.textContent = 'Email:';
+   form.appendChild(emailLabel);
+   
+   form.appendChild(document.createElement('br'));
+   
+   const emailInput = document.createElement('input');
+   emailInput.type = 'email';
+   emailInput.id = 'email';
+   emailInput.name = 'email';
+   form.appendChild(emailInput);
+   
+   form.appendChild(document.createElement('br'));
+   
+   const submitButton = document.createElement('input');
+   submitButton.type = 'submit';
+   submitButton.value = 'Отправить';
+   form.appendChild(submitButton);
+   
+   document.body.appendChild(form);
    </script>
 </html>
